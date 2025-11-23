@@ -2,10 +2,41 @@
 
 
 def split_before_uppercases(formula):
-    pass  # replace the pass with your code
+    formula = "H2OCO2NH3Fe"
+    result = split_before_each_uppercases(formula)
+    assert result == ['H2', 'O', 'C', 'O2', 'N', 'H3','Fe'], f"Test 1 Failed: {result}"
+
+    # Test 2: Single part formula with no uppercase letters
+    formula = "water"
+    result = split_before_each_uppercases(formula)
+    assert result == ['water'], f"Test 2 Failed: {result}"
+
+    # Test 3: Formula starting with an uppercase letter
+    formula = "NaCl"
+    result = split_before_each_uppercases(formula)
+    assert result == ['Na', 'Cl'], f"Test 3 Failed: {result}"
+
+    # Test 4: Formula with multiple uppercase letters together
+    formula = "C6H12O6B"
+    result = split_before_each_uppercases(formula)
+    assert result == ['C6', 'H12', 'O6', 'B'], f"Test 4 Failed: {result}"
+
+    # Test 5: Empty string
+    formula = ""
+    result = split_before_each_uppercases(formula)
+    assert result == [], f"Test 5 Failed: {result}"
+
+    print("All tests passed!")
+  # replace the pass with your code
 
 def split_at_digit(formula):
-    pass  # replace the pass with your code
+    assert split_at_first_digit("H2") == ("H", 2)
+    assert split_at_first_digit("He23") == ("He", 23)
+    assert split_at_first_digit("Fe") == ("Fe", 1)
+    assert split_at_first_digit("Fe1") == ("Fe", 1)
+    assert split_at_first_digit("F") == ("F", 1)
+    assert split_at_first_digit("He10000") == ("He", 10000)
+    print("All tests passed!")  # replace the pass with your code
 
 def count_atoms_in_molecule(molecular_formula):
     """Takes a molecular formula (string) and returns a dictionary of atom counts.  
